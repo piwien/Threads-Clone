@@ -40,7 +40,7 @@ struct RegistrationView: View {
             }
             
             Button {
-                dismiss()
+                
             } label: {
                 Text("Sign up")
                     .modifier(ButtonModifier())
@@ -50,7 +50,7 @@ struct RegistrationView: View {
             Spacer()
             
             Button {
-                
+                dismiss()
             } label: {
                 HStack {
                     Text("Already have an account?")
