@@ -25,15 +25,19 @@ struct RegistrationView: View {
                     .modifier(TextFieldModifier())
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
                 
                 SecureField("Enter your password", text: $viewModel.password)
                     .modifier(TextFieldModifier())
                 
                 TextField("Enter your full name", text: $viewModel.fullname)
                     .modifier(TextFieldModifier())
+                    .autocorrectionDisabled()
                 
                 TextField("Enter your username", text: $viewModel.username)
                     .modifier(TextFieldModifier())
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
             }
             
             Button {

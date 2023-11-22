@@ -25,6 +25,8 @@ struct LoginView: View {
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                         .modifier(TextFieldModifier())
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
                     
                     SecureField("Enter your password", text: $viewModel.password)
                         .modifier(TextFieldModifier())
