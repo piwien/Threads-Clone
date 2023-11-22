@@ -19,7 +19,6 @@ struct ExploreView: View {
                         NavigationLink(value: user) {
                             VStack {
                                 UserCellView(user: user)
-                                
                                 Divider()
                             }
                             .padding(.vertical, 3)
@@ -28,7 +27,7 @@ struct ExploreView: View {
                 }
             }
             .navigationDestination(for: User.self, destination: { user in
-                UserProfileView()
+                UserProfileView(user: user)
             })
             .navigationTitle("Search")
             .searchable(text: $searchtext, prompt: "Search")

@@ -71,7 +71,8 @@ struct ThreadCellView: View {
             }
             Divider()
         }
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 5)
     }
 }
 
