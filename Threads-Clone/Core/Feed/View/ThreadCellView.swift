@@ -11,11 +11,11 @@ struct ThreadCellView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
-                CircularUserProfileView()
-                    .overlay(
-                        Circle()
-                            .stroke(Color.black, lineWidth: 1)
-                    )
+                CircularUserProfileView(user: nil, size: .small)
+//                    .overlay(
+//                        Circle()
+//                            .stroke(Color.black, lineWidth: 1)
+//                    )
                 
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {

@@ -15,7 +15,7 @@ struct NewThreadView: View {
         NavigationStack {
             VStack {
                 HStack(alignment: .top) {
-                    CircularUserProfileView()
+                    CircularUserProfileView(user: nil, size: .small)
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("sebastianvettel")
