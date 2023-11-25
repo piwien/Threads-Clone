@@ -68,6 +68,17 @@ struct ThreadCellView: View {
                     }
                     .padding(.vertical,8)
                     .foregroundStyle(.black)
+                    
+                    if thread.likes > 1 {
+                        Text("\(thread.likes) likes")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    } else if thread.likes == 1 {
+                        Text("1 like")
+                            .font(.footnote)
+                            .foregroundStyle(.gray)
+                    }
+                    
                 }
             }
             Divider()
