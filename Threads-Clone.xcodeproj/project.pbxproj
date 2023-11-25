@@ -31,6 +31,8 @@
 		A03DC4B32B06CB0800C2E069 /* CircularUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DC4B22B06CB0800C2E069 /* CircularUserProfileView.swift */; };
 		A03DC4B52B06CB8000C2E069 /* UserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03DC4B42B06CB8000C2E069 /* UserCellView.swift */; };
 		A07F6BDB2B11FC2100042BE0 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F6BDA2B11FC2100042BE0 /* FeedViewModel.swift */; };
+		A07F6BDF2B121AE800042BE0 /* UserThreadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F6BDE2B121AE800042BE0 /* UserThreadListViewModel.swift */; };
+		A07F6BE12B1220AF00042BE0 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07F6BE02B1220AF00042BE0 /* Timestamp.swift */; };
 		A08F6DBE2B0FD6E30085A464 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A08F6DBD2B0FD6E30085A464 /* Kingfisher */; };
 		A08F6DC02B0FE8E10085A464 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F6DBF2B0FE8E10085A464 /* Thread.swift */; };
 		A08F6DC32B0FEA1D0085A464 /* CreateThreadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08F6DC22B0FEA1D0085A464 /* CreateThreadViewModel.swift */; };
@@ -128,6 +130,8 @@
 		A03DC4B22B06CB0800C2E069 /* CircularUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularUserProfileView.swift; sourceTree = "<group>"; };
 		A03DC4B42B06CB8000C2E069 /* UserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellView.swift; sourceTree = "<group>"; };
 		A07F6BDA2B11FC2100042BE0 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		A07F6BDE2B121AE800042BE0 /* UserThreadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserThreadListViewModel.swift; sourceTree = "<group>"; };
+		A07F6BE02B1220AF00042BE0 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
 		A08F6DBF2B0FE8E10085A464 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		A08F6DC22B0FEA1D0085A464 /* CreateThreadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateThreadViewModel.swift; sourceTree = "<group>"; };
 		A08F6DC42B0FEFC70085A464 /* ThreadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadService.swift; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				A02811B12B0E442700F93FD8 /* PreviewProvider.swift */,
+				A07F6BE02B1220AF00042BE0 /* Timestamp.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -492,6 +497,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A07F6BDC2B121AAE00042BE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A0F4F7682B0E62460037E511 /* ProfileHeaderView.swift */,
+				A0F4F76A2B0E659D0037E511 /* UserContentListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A07F6BDD2B121AB800042BE0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A07F6BDE2B121AE800042BE0 /* UserThreadListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A08F6DC12B0FE9F30085A464 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,8 +549,8 @@
 		A0F4F7672B0E62300037E511 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A0F4F7682B0E62460037E511 /* ProfileHeaderView.swift */,
-				A0F4F76A2B0E659D0037E511 /* UserContentListView.swift */,
+				A07F6BDC2B121AAE00042BE0 /* View */,
+				A07F6BDD2B121AB800042BE0 /* ViewModel */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -729,7 +751,9 @@
 				A08F6DC32B0FEA1D0085A464 /* CreateThreadViewModel.swift in Sources */,
 				A02BC93E2B0663AD009588C0 /* TextFieldModifier.swift in Sources */,
 				A02BC9222B06523D009588C0 /* ContentView.swift in Sources */,
+				A07F6BE12B1220AF00042BE0 /* Timestamp.swift in Sources */,
 				A0F4F76B2B0E659D0037E511 /* UserContentListView.swift in Sources */,
+				A07F6BDF2B121AE800042BE0 /* UserThreadListViewModel.swift in Sources */,
 				A03DC4B32B06CB0800C2E069 /* CircularUserProfileView.swift in Sources */,
 				A02BC9572B068E16009588C0 /* UserProfileView.swift in Sources */,
 				A02BC9432B067BC6009588C0 /* ThreadsTabView.swift in Sources */,

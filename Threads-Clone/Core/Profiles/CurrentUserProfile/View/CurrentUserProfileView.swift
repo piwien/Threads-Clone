@@ -37,7 +37,9 @@ struct CurrentUserProfileView: View {
                     })
                     
                     //user content listview
-                    UserContentListView()
+                    if let user = currentUser {
+                        UserContentListView(user: user)
+                    }
                     
                 }
             }
