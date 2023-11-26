@@ -10,6 +10,7 @@ import SwiftUI
 struct CurrentUserProfileView: View {
     @StateObject var viewModel = CurrentUserProfileViewModel()
     @State private var showEditProfile = false
+    @State private var showSettings = false
     
     private var currentUser: User? {
         return viewModel.currentUser
@@ -51,7 +52,8 @@ struct CurrentUserProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        AuthService.shared.signOut()
+                        showSettings.toggle()
+//                        AuthService.shared.signOut()
                     } label: {
                         Image(systemName: "line.3.horizontal")
                             .foregroundStyle(.black)
@@ -59,6 +61,10 @@ struct CurrentUserProfileView: View {
                 }
             }
             .padding(.horizontal)
+            .navigationDestination(isPresented: $showSettings, destination: {
+                SettingView()
+            })
+
         }
     }
 }

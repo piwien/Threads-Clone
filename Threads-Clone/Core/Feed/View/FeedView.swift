@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FeedView: View {
     @StateObject var viewModel = FeedViewModel()
+//    @State private var selectedThread: Thread?
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -21,10 +23,16 @@ struct FeedView: View {
             .refreshable {
                 Task { try await viewModel.fetchThreads() }
             }
-            .navigationTitle("Threads")
+//            .navigationTitle("Threads")
             .navigationBarTitleDisplayMode(.inline)
         }
         .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image("threads-icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 35)
+            }
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
                     

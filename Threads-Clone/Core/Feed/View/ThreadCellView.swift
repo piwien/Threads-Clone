@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ThreadCellView: View {
     let thread: Thread
+    @State private var likeicon = "heart"
+    @StateObject var viewModel = FeedViewModel()
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -43,9 +45,26 @@ struct ThreadCellView: View {
                     
                     HStack(spacing: 16) {
                         Button {
-                            
+                            Task {
+                                do {
+                                    if likeicon == "heart" {
+                                        likeicon = "heart.fill"
+                                        viewModel.likeupdate+=1
+                                        print("Kalpli: \(viewModel.likeupdate)")
+                                        try await viewModel.plusLike(thread: thread)
+                                    } else {
+                                        likeicon = "heart"
+                                        viewModel.likeupdate-=1
+                                        print("Kalpsiz: \(viewModel.likeupdate)")
+                                        try await viewModel.minusLike(thread: thread)
+                                    }
+                                } catch {
+                                    print("Error: \(error.localizedDescription)")
+                                }
+                            }
                         } label: {
-                            Image(systemName: "heart")
+                            Image(systemName: likeicon)
+                                .foregroundStyle(likeicon == "heart" ? .black : .pink)
                         }
                         
                         Button {
@@ -69,19 +88,33 @@ struct ThreadCellView: View {
                     .padding(.vertical,8)
                     .foregroundStyle(.black)
                     
-                    if thread.likes > 1 {
-                        Text("\(thread.likes) likes")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    } else if thread.likes == 1 {
-                        Text("1 like")
-                            .font(.footnote)
-                            .foregroundStyle(.gray)
-                    }
+//                    if thread.likes + likeupdate > 1 {
+//                        Text("\(thread.likes + likeupdate) likes")
+//                            .font(.footnote)
+//                            .foregroundStyle(.gray)
+//                    } else if thread.likes + likeupdate == 1 {
+//                        Text("\(thread.likes + likeupdate) like")
+//                            .font(.footnote)
+//                            .foregroundStyle(.gray)
+//                    }
+                    
+                    if thread.likes + viewModel.likeupdate > 1 {
+                                Text("\(thread.likes + viewModel.likeupdate) likes")
+                                    .font(.footnote)
+                                    .foregroundStyle(.gray)
+                            } else if thread.likes + viewModel.likeupdate == 1 {
+                                Text("\(thread.likes + viewModel.likeupdate) like")
+                                    .font(.footnote)
+                                    .foregroundStyle(.gray)
+                            }
+
                     
                 }
             }
             Divider()
+        }
+        .onChange(of: thread.likes) {
+            viewModel.likeupdate = 0
         }
         .padding(.horizontal)
         .padding(.vertical, 5)

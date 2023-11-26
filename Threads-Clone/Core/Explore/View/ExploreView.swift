@@ -30,8 +30,10 @@ struct ExploreView: View {
                 UserProfileView(user: user)
             })
             .navigationTitle("Search")
-            .searchable(text: $searchtext, prompt: "Search")
+            .navigationBarTitleDisplayMode(.automatic)
         }
+
+        .searchable(text: $searchtext, prompt: "Search")
     }
 }
 
