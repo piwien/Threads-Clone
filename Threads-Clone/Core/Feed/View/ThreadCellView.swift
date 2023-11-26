@@ -41,7 +41,7 @@ struct ThreadCellView: View {
                     Text(thread.caption)
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
-                        .lineLimit(2)
+                        .lineLimit(4)
                     
                     HStack(spacing: 16) {
                         Button {

@@ -18,7 +18,7 @@ struct CurrentUserProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
+//            ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
                     
                     ProfileHeaderView(user: currentUser)
@@ -43,7 +43,7 @@ struct CurrentUserProfileView: View {
                     }
                     
                 }
-            }
+//            }
             .sheet(isPresented: $showEditProfile, content: {
                 if let user = currentUser {
                     EditProfileView(user: user)
@@ -53,7 +53,6 @@ struct CurrentUserProfileView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         showSettings.toggle()
-//                        AuthService.shared.signOut()
                     } label: {
                         Image(systemName: "line.3.horizontal")
                             .foregroundStyle(.black)

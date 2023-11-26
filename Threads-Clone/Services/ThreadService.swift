@@ -52,4 +52,27 @@ struct ThreadService {
             }) as! Int
         }
     
+    static func fetchUsersAndThreads() async throws -> ([User], [Thread]) {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return ([], []) }
+
+        let usersSnapshot = try await Firestore.firestore().collection("users").getDocuments()
+        let users = usersSnapshot.documents.compactMap({ try? $0.data(as: User.self) })
+
+        let threadsSnapshot = try await Firestore.firestore().collection("threads").getDocuments()
+        var threads = threadsSnapshot.documents.compactMap({ try? $0.data(as: Thread.self) })
+        threads = threads.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
+
+        // Update user data in threads
+        for i in 0 ..< threads.count {
+            if let index = users.firstIndex(where: { $0.id == threads[i].ownerUid }) {
+                threads[i].user = users[index]
+            }
+        }
+
+        // Remove threads owned by the current user
+        threads = threads.filter { $0.ownerUid == currentUid }
+
+        return (users, threads)
+    }
+    
 }

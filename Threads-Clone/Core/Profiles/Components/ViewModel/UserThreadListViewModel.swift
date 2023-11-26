@@ -10,12 +10,19 @@ import Foundation
 @MainActor
 class UserThreadListViewModel: ObservableObject {
     @Published var threads = [Thread]()
+    @Published var users = [User]()
     let user: User
     
     init(user: User) {
         self.user = user
         Task { try await fetchUserThreads() }
     }
+    
+    func fetchUsersAndThreads() async throws {
+            let (users, threads) = try await ThreadService.fetchUsersAndThreads()
+            self.users = users
+            self.threads = threads
+        }
     
     func fetchUserThreads() async throws {
         var threads = try await ThreadService.fetchUserThreads(uid: user.id)

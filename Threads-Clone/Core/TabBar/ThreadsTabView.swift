@@ -13,7 +13,9 @@ struct ThreadsTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            FeedView()
+            NavigationStack {
+                FeedView()
+            }
                 .tabItem {
                     Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                         .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)

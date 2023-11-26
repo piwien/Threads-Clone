@@ -44,6 +44,7 @@ struct SettingView: View {
             Divider()
             Button(action: {}, label: {
                 Text("Switch Profiles")
+                    .foregroundStyle(.blue)
             })
             Button(action: { AuthService.shared.signOut() }, label: {
                 Text("Log out")

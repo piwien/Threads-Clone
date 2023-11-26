@@ -48,11 +48,17 @@ struct UserContentListView: View {
                     }
                 }
             }
-            
-            LazyVStack {
-                ForEach(viewModel.threads) { thread in
-                    ThreadCellView(thread: thread)
+            ScrollView(showsIndicators: false) {
+                LazyVStack {
+                    ForEach(viewModel.threads) { thread in
+                        ThreadCellView(thread: thread)
+                    }
                 }
+            }
+            .refreshable {
+                Task { try await viewModel.fetchUsersAndThreads() }
+                print("Thread dataaa: \(viewModel.threads)")
+                print("Thread user dataaa: \(viewModel.user)")
             }
         }
         .padding(.vertical, 8)
